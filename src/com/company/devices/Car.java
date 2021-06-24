@@ -1,10 +1,21 @@
-package com.company;
+package com.company.devices;
 
-public class Car {
-    String model;
-    String producer;
-    int yearOfProduction;
-    String colour;
+public class Car extends Device {
+   public String colour;
+
+   public Car (String producer, String model, Integer yearOfProduction){
+       super(producer, model, yearOfProduction );
+
+   }
+
+    @Override
+    public void turnOn() {
+        System.out.println("otwórz drzwi");
+        System.out.println("Włóż kluczy w stacyjkę");
+        System.out.println("przekręć");
+        System.out.println("Poczekaj aż silnikz zxapali");
+    }
+
     public String toString(){
         return model+ " " + producer+ " " + colour;
     }

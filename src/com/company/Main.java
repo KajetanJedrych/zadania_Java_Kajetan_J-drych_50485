@@ -1,23 +1,20 @@
 package com.company;
 
+import com.company.devices.Car;
+import com.company.devices.Device;
+import com.company.devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
-        Car seat = new Car();
-        seat.model = "Leon";
-        seat.producer = "Seat";
-        seat.yearOfProduction = 2010;
-        seat.colour = "silver";
+        Car seat = new Car("Seat","Leon", 2009);
+        seat.colour = "Blue";
         Human kajetan = new Human(seat);
-        Car bmw = new Car();
-        bmw.model = "Leon";
-        bmw.producer = "Seat";
-        bmw.yearOfProduction = 2010;
-        bmw.colour = "silver";
+        Car bmw = new Car("BMW ","e90", 2010);
+        bmw.colour = "Blue";
+        bmw.turnOn();
         System.out.println("seat.equals(bmw): " + seat.equals(bmw));
-        Phone Nokia = new Phone();
-        Nokia.produser ="Nokia";
-        Nokia.model = "3310";
+        Phone Nokia = new Phone("Nokia", "3310", 2001);
         Nokia.screanSize = 3.2;
         Nokia.os = "Windows";
         System.out.println(seat);
@@ -28,23 +25,6 @@ public class Main {
         Kajetan.phone = Nokia;
 
 
-        Animal dog = new Animal("pitbull");
-        dog.name = "Szarik";
-        dog.feed();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.feed();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.feed();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        System.out.println(dog);
-        System.out.println(Kajetan);
-        System.out.println(Nokia);
 
 
 
