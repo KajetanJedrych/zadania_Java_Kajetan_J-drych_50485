@@ -1,6 +1,8 @@
-package com.company;
+package com.company.Creatures;
 
-public class Animal {
+import com.company.selleable;
+
+public class Animal implements selleable {
     final public String species;
     private Double weight;
     String name;
@@ -30,4 +32,22 @@ public class Animal {
             System.out.println("too much walk, your pet "+ this.name +" die ");
         }
  }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (this instanceof Human){
+            System.out.println("Nie można sprzedawać ludzi dzwonie o prokuratury!!!");
+        }
+        else if(seller.pet != this){
+            System.out.println("nie posiadasz zwierzęcia");
+        }
+        else if(buyer.cash < price){
+            System.out.println("Kupujący nie ma tyle kasy");
+        }
+        else { buyer.pet = this;
+        seller.pet = null;
+        buyer.cash -= price;
+        seller.cash+= price;
+            System.out.println("Brawo tranzakcja dokonana");}
+    }
 }

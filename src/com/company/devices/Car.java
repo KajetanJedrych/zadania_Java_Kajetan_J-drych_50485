@@ -1,6 +1,8 @@
 package com.company.devices;
+import com.company.Creatures.Human;
+import com.company.selleable;
 
-public class Car extends Device {
+public class Car extends Device implements selleable{
    public String colour;
 
    public Car (String producer, String model, Integer yearOfProduction){
@@ -33,4 +35,18 @@ public class Car extends Device {
         return false;
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if(seller.car != this){
+            System.out.println("nie posiadasz samochodu");
+        }
+        else if(buyer.cash < price){
+            System.out.println("Kupujący nie ma tyle kasy");
+        }
+        else { buyer.car = this;
+            seller.pet = null;
+            buyer.cash -= price;
+            seller.cash+= price;
+            System.out.println("Brawo tranzakcja dokonana");}
+    }
 }

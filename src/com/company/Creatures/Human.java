@@ -1,21 +1,28 @@
-package com.company;
+package com.company.Creatures;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import com.company.selleable;
 
 import java.util.Date;
 
-public class Human {
-    String firstName;
-    String lastName;
-    Phone phone;
-    Animal dog;
+public class Human extends Animal implements selleable {
+    private static  final String Human_Species = "Homo sapiens";
+    public String firstName;
+    public String lastName;
+    public Phone phone;
+    public Animal pet ;
+    public Car car ;
     private  Double salary;
     Date date = new Date();
     private Car objCar;
-    public Human(Car obj){
-        objCar = obj;
+    public  Double cash = 200.00;
+
+    public Human(String lastName) {
+        super(Human_Species);
+        this.lastName = lastName;
     }
+
     public String toString(){
         return firstName+ " " + lastName+ " " + phone;
     }
@@ -35,5 +42,10 @@ public class Human {
             salary = newSalary;
 
         }
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+
     }
 }
