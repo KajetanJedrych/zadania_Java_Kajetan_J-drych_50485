@@ -1,7 +1,9 @@
 package com.company;
 
 import com.company.Creatures.Animal;
+import com.company.Creatures.FarmAnimal;
 import com.company.Creatures.Human;
+import com.company.Creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -18,21 +20,34 @@ public class Main {
         Human me = new Human("Jedrych");
 
         me.phone = Nokia;
-        Animal Rico = new Animal("dog");
-        me.pet = Rico;
+
         Human theBestJavaTeacher = new Human("Warda");
         theBestJavaTeacher.lastName = "Warda";
-        Rico.sell(me,theBestJavaTeacher,3.00);
-        System.out.println("3.00 wystarczy do pełni szczęścia");
-        Animal PanKot = new Animal("Kot");
-        me.pet = PanKot;
-        PanKot.sell(me, theBestJavaTeacher, 4.00);
+
+
+
         Human someRandom = new Human("Random");
-        me.pet = someRandom;
+        me.animal = someRandom;
         someRandom.sell(me,theBestJavaTeacher,21.38);
         theBestJavaTeacher.car = bmw;
         bmw.sell(theBestJavaTeacher,me,5000.99);
         Nokia.sell(me,someRandom,39.99);
+
+        Animal dog = new Pet("Dog");
+        Animal pig = new FarmAnimal("pig");
+        Animal cow = new FarmAnimal("cow");
+        Human Carl = new Human("Nowak");
+        dog.weight =  10.2;
+        pig.weight =  35.1;
+        cow.weight = 100.3;
+        Carl.weight = 88.7;
+        pig.beEaten();
+        dog.beEaten();
+        cow.feed();
+        cow.feed(34.2);
+        Carl.beEaten();
+
+
 
 
 

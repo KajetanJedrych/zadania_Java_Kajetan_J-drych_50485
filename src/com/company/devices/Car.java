@@ -44,7 +44,7 @@ public class Car extends Device implements selleable{
             System.out.println("Kupujący nie ma tyle kasy");
         }
         else { buyer.car = this;
-            seller.pet = null;
+            seller.car = null;
             buyer.cash -= price;
             seller.cash+= price;
             System.out.println("Brawo tranzakcja dokonana");}

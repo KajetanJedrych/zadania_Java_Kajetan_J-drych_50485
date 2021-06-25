@@ -1,5 +1,4 @@
 package com.company.Creatures;
-
 import com.company.devices.Car;
 import com.company.devices.Phone;
 import com.company.selleable;
@@ -11,7 +10,7 @@ public class Human extends Animal implements selleable {
     public String firstName;
     public String lastName;
     public Phone phone;
-    public Animal pet ;
+    public Animal animal ;
     public Car car ;
     private  Double salary;
     Date date = new Date();

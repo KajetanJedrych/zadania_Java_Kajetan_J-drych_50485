@@ -27,7 +27,7 @@ public  Phone(String producer, String model, Integer yerOfProduction){
             System.out.println("Kupujący nie ma tyle kasy");
         }
         else { buyer.phone = this;
-            seller.pet = null;
+            seller.phone = null;
             buyer.cash -= price;
             seller.cash+= price;
             System.out.println("Brawo tranzakcja dokonana");}
