@@ -2,7 +2,7 @@ package com.company.devices;
 import com.company.Creatures.Human;
 import com.company.selleable;
 
-public class Car extends Device implements selleable{
+public abstract class Car extends Device implements selleable{
    public String colour;
 
    public Car (String producer, String model, Integer yearOfProduction){
@@ -49,4 +49,5 @@ public class Car extends Device implements selleable{
             seller.cash+= price;
             System.out.println("Brawo tranzakcja dokonana");}
     }
+    abstract public void refueal();
 }
