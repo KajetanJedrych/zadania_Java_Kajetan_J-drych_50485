@@ -36,18 +36,21 @@ public abstract class Car extends Device implements selleable{
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        if(seller.car != this){
-            System.out.println("nie posiadasz samochodu");
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (!seller.hasCar(this)) {
+            throw new Exception("don't have this car");
         }
-        else if(buyer.cash < price){
-            System.out.println("Kupujący nie ma tyle kasy");
+        if (!buyer.hasFreeSpace()) {
+            throw new Exception("to small garage");
         }
-        else { buyer.car = this;
-            seller.car = null;
-            buyer.cash -= price;
-            seller.cash+= price;
-            System.out.println("Brawo tranzakcja dokonana");}
+        if (buyer.getCash() < price) {
+            throw new Exception("not enough money");
+        }
+        seller.removeCar(this);
+        buyer.addCar(this);
+        seller.setCash(seller.getCash() + price);
+        buyer.setCash(buyer.getCash() - price);
+        System.out.println("transakcja się udała");
     }
     abstract public void refueal();
 }

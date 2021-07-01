@@ -35,7 +35,7 @@ public class Main {
         Human someRandom = new Human("Random");
         me.animal = someRandom;
         someRandom.sell(me,theBestJavaTeacher,21.38);
-        theBestJavaTeacher.car = bmw;
+
         Nokia.sell(me,someRandom,39.99);
 
         Animal dog = new Pet("Dog");
