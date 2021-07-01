@@ -76,48 +76,38 @@ public class Human extends Animal implements selleable {
         }
     }
 
-    public void sortGarage(Comparator comparator) {
-        Arrays.sort(this.garage, comparator);
+    public void sortGarage() {
+        Arrays.sort(this.garage);
     }
 
     public boolean hasCar(Car newCar) {
-        for (Car car : garage) {
-            if (car == newCar) {
-                return true;
-            }
+        return indexOf(garage, newCar) > -1;
+    }
+
+    public static int indexOf(Object[] array, Object o){
+        for (int i = 0; i < array.length; ++i){
+            if (array[i] == o)
+                return i;
         }
-        return false;
+        return -1;
     }
 
     public boolean hasFreeSpace() {
-        for (int i = 0; i < this.garage.length; i++) {
-            if (this.garage[i] == null) {
-                return true;
-            }
-        }
-        return false;
+        return indexOf(garage, null) > -1;
     }
-
     public void removeCar(Car car) {
-        for (int i = 0; i < this.garage.length; i++) {
-            if (this.garage[i] == car) {
-                this.garage[i] = null;
-            }
-        }
+            garage[indexOf(garage, car)] = null;
     }
 
-    public void addCar(Car newCar) throws Exception {
+    public void addCar(Car newCar) {
         if (this.hasFreeSpace()) {
-            for (int i = 0; i < this.garage.length; i++) {
-                if (this.garage[i] == null) {
-                    this.garage[i] = newCar;
-                    break;
-                }
-            }
+            int newIndex = indexOf(garage, null);
+            garage[newIndex] = newCar;
         } else {
             System.out.println("nie masz tyle miejsca");
         }
     }
+
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {

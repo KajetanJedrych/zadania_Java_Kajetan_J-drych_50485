@@ -5,11 +5,10 @@ import com.company.Creatures.FarmAnimal;
 import com.company.Creatures.Human;
 import com.company.Creatures.Pet;
 import com.company.devices.*;
+import java.util.Arrays;
 
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+
 
 public class Main {
 
@@ -60,17 +59,28 @@ public class Main {
         Nokia.installAnApp("GaduGadu");
         Nokia.installAnApp("NaszaKlasa",2,"www.mojHost.pl");
 
+        me.addCar(toyota);
+        theBestJavaTeacher.addCar(bmw);
+        theBestJavaTeacher.addCar(seat);
+        theBestJavaTeacher.sortGarage();
+        System.out.println(Arrays.toString(theBestJavaTeacher.getGarage()));
+        System.out.println("Garaż warty: " + theBestJavaTeacher.valueOfCars());
 
+        try{
+            theBestJavaTeacher.setCash(4000.0);
+            toyota.sell(me, theBestJavaTeacher, 2500.0);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
-
-
-
-
-
-
-
-
-
+        try{
+            me.setCash(4000.0);
+            bmw.sell(theBestJavaTeacher, me, 4000.0);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        me.sortGarage();
+        System.out.println(Arrays.toString(me.getGarage()));
 
 
     }
