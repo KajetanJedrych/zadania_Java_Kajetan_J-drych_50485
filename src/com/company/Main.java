@@ -58,24 +58,17 @@ public class Main {
         Nokia.installAnApp(apps);
         Nokia.installAnApp("GaduGadu");
         Nokia.installAnApp("NaszaKlasa",2,"www.mojHost.pl");
-
-        me.addCar(toyota);
-        theBestJavaTeacher.addCar(bmw);
-        theBestJavaTeacher.addCar(seat);
-        theBestJavaTeacher.sortGarage();
-        System.out.println(Arrays.toString(theBestJavaTeacher.getGarage()));
-        System.out.println("Garaż warty: " + theBestJavaTeacher.valueOfCars());
-
-        try{
-            theBestJavaTeacher.setCash(4000.0);
-            toyota.sell(me, theBestJavaTeacher, 2500.0);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        me.giftCar(toyota);
+        theBestJavaTeacher.giftCar(bmw);
+        theBestJavaTeacher.giftCar(seat);
 
         try{
             me.setCash(4000.0);
             bmw.sell(theBestJavaTeacher, me, 4000.0);
+            System.out.println(bmw.currentOwner());
+            System.out.println(bmw.wasOwner(theBestJavaTeacher));
+            System.out.println(bmw.hasSold(theBestJavaTeacher, me));
+            System.out.println(bmw.transactionsCount());
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

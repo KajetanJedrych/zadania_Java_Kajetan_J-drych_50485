@@ -99,12 +99,20 @@ public class Human extends Animal implements selleable {
             garage[indexOf(garage, car)] = null;
     }
 
-    public void addCar(Car newCar) {
+    public boolean addCar(Car newCar) {
         if (this.hasFreeSpace()) {
             int newIndex = indexOf(garage, null);
             garage[newIndex] = newCar;
+            return true;
         } else {
             System.out.println("nie masz tyle miejsca");
+            return false;
+        }
+    }
+
+    public void giftCar(Car newCar) {
+        if (this.addCar(newCar)) {
+            newCar.newTransaction(new Car.Transaction(this, null, 0.0));
         }
     }
 
