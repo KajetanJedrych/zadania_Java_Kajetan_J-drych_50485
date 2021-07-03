@@ -5,6 +5,8 @@ import com.company.Creatures.FarmAnimal;
 import com.company.Creatures.Human;
 import com.company.Creatures.Pet;
 import com.company.devices.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.net.MalformedURLException;
@@ -35,8 +37,6 @@ public class Main {
         me.animal = someRandom;
         someRandom.sell(me,theBestJavaTeacher,21.38);
 
-        Nokia.sell(me,someRandom,39.99);
-
         Animal dog = new Pet("Dog");
         Animal pig = new FarmAnimal("pig");
         Animal cow = new FarmAnimal("cow");
@@ -58,22 +58,37 @@ public class Main {
         Nokia.installAnApp(apps);
         Nokia.installAnApp("GaduGadu");
         Nokia.installAnApp("NaszaKlasa",2,"www.mojHost.pl");
-        me.giftCar(toyota);
-        theBestJavaTeacher.giftCar(bmw);
-        theBestJavaTeacher.giftCar(seat);
+        Application google = new Application("1.0", "Google", 0d);
+        Application linkedIn = new Application("0.3", "LinkedIn", 0d);
+        Application intellij = new Application("2.3", "IntelliJ IDEA", 100d);
+        Application spotify = new Application("1.9", "Spotify", 30d);
+        Application test = new Application("0.2", "test", 120d);
 
         try{
-            me.setCash(4000.0);
-            bmw.sell(theBestJavaTeacher, me, 4000.0);
-            System.out.println(bmw.currentOwner());
-            System.out.println(bmw.wasOwner(theBestJavaTeacher));
-            System.out.println(bmw.hasSold(theBestJavaTeacher, me));
-            System.out.println(bmw.transactionsCount());
+            me.setCash(220d);
+            me.phone.buyApp(me, google);
+            me.phone.buyApp(me, linkedIn);
+            me.phone.buyApp(me, test);
+            me.phone.buyApp(me, intellij);
+            me.phone.buyApp(me, spotify);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
         me.sortGarage();
         System.out.println(Arrays.toString(me.getGarage()));
+        System.out.println(me.phone.isInstalled(google));
+        System.out.println(me.phone.isInstalled("Spotify"));
+        System.out.println(me.phone.freeApps());
+        System.out.println("Wartość aplikacji: " + me.phone.totalAppValue());
+        ArrayList<Application> alphabetically = me.phone.appsAlphabetically();
+        for (Application a : alphabetically){
+            System.out.println(a.name + ", " + a.price);
+        }
+        System.out.println(alphabetically.toString());
+        ArrayList<Application> byPrice = me.phone.appsByPrice();
+        for (Application a : byPrice){
+            System.out.println(a.name + ", " + a.price);
+        }
 
 
     }
